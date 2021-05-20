@@ -2,6 +2,7 @@
 
 #include "base.hpp"
 #include "op.hpp"
+#include "rand.hpp"
 #include "mult.hpp"
 #include "div.hpp"
 #include "add.hpp"
@@ -48,6 +49,7 @@ if(result == nullptr)
 }
 cout << "Result: " << result->stringify() << "=" <<  result->evaluate() << endl;
 
+//delete result;
     return 0;
 }//end main
 

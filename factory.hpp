@@ -17,16 +17,14 @@
 using namespace std;
 
 class factory {
-
-
-
 public:
+	string errorStg = "";
+
 
 	Base* parse ( char** input, int length) {
 	
 		int i = 1;
 		Base* root = nullptr;
-
 		while( i < length ){
 		
 			if ( i == 1){
@@ -37,6 +35,7 @@ public:
 				catch(exception&e)
 				{
 					cout << "ERROR!" << endl;
+					this->errorStg = "ERROR!";
 					return nullptr;	
 				}//end catch 
 				
@@ -47,14 +46,16 @@ public:
 				//ensure next
 				 try {
                                     double test = stod(input[++i]);
-			           
+			        
 				    root = new Add (left, new Op(test) );
+			
                                 }//ensure proper first input
 
 
                                 catch(exception&e)
                                 {
                                         cout << "ERROR!" << endl;
+					this->errorStg = "ERROR!";
                                         return nullptr;
                                 }//end catch
 
@@ -74,6 +75,7 @@ public:
                                 catch(exception&e)
                                 {
                                         cout << "ERROR!" << endl;
+					this->errorStg = "ERROR!";
                                         return nullptr;
                                 }//end catch
 
@@ -96,6 +98,7 @@ public:
                                 catch(exception&e)
                                 {
                                         cout << "ERROR!" << endl;
+					this->errorStg = "ERROR!";
                                         return nullptr;
                                 }//end catch
 
@@ -117,6 +120,7 @@ public:
                                 catch(exception&e)
                                 {
                                         cout << "ERROR!" << endl;
+					this->errorStg = "ERROR!";
                                         return nullptr;
                                 }//end catch
 
@@ -139,6 +143,7 @@ public:
                                 catch(exception&e)
                                 {
                                         cout << "ERROR!" << endl;
+					this->errorStg = "ERROR!";
                                         return nullptr;
                                 }//end catch
 
@@ -149,6 +154,7 @@ public:
 
 			else {
 				cout << "ERROR!" << endl;
+				this->errorStg = "ERROR!";
 				return nullptr;
 			}//end else 
 
@@ -156,7 +162,7 @@ public:
 
 
 		}//end while 
-		
+			
 			return root;
 
 	}//end Base 
