@@ -60,7 +60,7 @@
  EXPECT_EQ(test->stringify(),"(10.000000/(5.000000*2.000000))" );
 }
 
-#
+
  TEST(DivTest,DivAdd ) {
  Op* op1 = new Op(10.0);
  Op* op2 = new Op(5.0);
