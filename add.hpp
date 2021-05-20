@@ -13,13 +13,22 @@ private:
         double value2;
         string paraOne;
         string paraTwo;
+	Base* left;
+	Base* right;
 
 public:
+	~Add() {
+		delete left;
+		delete right;
+		delete this;
+	}
         Add(Base* para1, Base* para2) : Base() {
                 value1 = para1->evaluate();
                 value2 = para2->evaluate();
                 paraOne = para1->stringify();
                 paraTwo = para2->stringify();
+		left = para1;
+		right = para2;
          }
         virtual double evaluate() { return (value1 + value2); }
         virtual std::string stringify()

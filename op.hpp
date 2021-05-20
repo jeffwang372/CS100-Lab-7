@@ -9,6 +9,9 @@ private:
 	double value;
 
 public:
+	~Op() {
+		delete this;
+	}
         Op(double value) : Base() {this->value = value; }
         virtual double evaluate() { return value; }
         virtual std::string stringify() { return std::to_string(value); }
