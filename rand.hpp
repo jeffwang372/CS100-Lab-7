@@ -10,6 +10,10 @@ private:
         double value;
 
 public:
+	~Rand() {
+                delete this;
+        }
+
         Rand() : Base() {this->value = rand() % 100; }
         virtual double evaluate() { return value; }
         virtual std::string stringify() { return std::to_string(value); }
