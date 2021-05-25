@@ -17,7 +17,10 @@
 using namespace std;
 
 class factory {
+
+
 public:
+
 	string errorStg = "";
 
 

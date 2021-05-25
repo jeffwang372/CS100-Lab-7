@@ -13,13 +13,23 @@ private:
         double value2;
         string paraOne;
         string paraTwo;
+	Base* left;
+	Base* right;
 
 public:
+	~Div() {
+		delete this->left;
+		delete this->right;
+                delete this;
+        }
+
         Div(Base* para1, Base* para2) : Base() {
                 value1 = para1->evaluate();
                 value2 = para2->evaluate();
                 paraOne = para1->stringify();
                 paraTwo = para2->stringify();
+		this->left = para1;
+		this->right = para2;
          }
         virtual double evaluate() 
 	{
